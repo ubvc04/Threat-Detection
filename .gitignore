@@ -1,7 +1,7 @@
 ﻿datasets/verified_online.csv
 venv/
 __pycache__/
-*.pyc
+.pyc
 .vscode/
 .idea/
 .env
