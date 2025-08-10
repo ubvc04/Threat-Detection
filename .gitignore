@@ -1,7 +1,23 @@
-﻿datasets/verified_online.csv
+# Ignore dataset file (sensitive or large files)
+datasets/verified_online.csv
+
+# Ignore Python virtual environment
 venv/
+
+# Ignore Python cache files
 __pycache__/
-.pyc
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore IDE/editor configuration
 .vscode/
 .idea/
+
+# Ignore environment variables/config files
 .env
+*.env
+
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
