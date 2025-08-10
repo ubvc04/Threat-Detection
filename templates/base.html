@@ -1,0 +1,382 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Threat Detection System{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'css/themes.css' %}" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Mode Colors */
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --success-color: #27ae60;
+            
+            /* Light Mode Backgrounds */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --bg-navbar: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            
+            /* Light Mode Text */
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --text-muted: #6c757d;
+            --text-white: #ffffff;
+            
+            /* Light Mode Borders */
+            --border-color: #dee2e6;
+            --border-light: #e9ecef;
+            
+            /* Light Mode Shadows */
+            --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-heavy: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Colors */
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f3460;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --success-color: #27ae60;
+            
+            /* Dark Mode Backgrounds */
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-navbar: linear-gradient(135deg, #0f0f23, #1a1a2e);
+            
+            /* Dark Mode Text */
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8b8;
+            --text-muted: #888888;
+            --text-white: #ffffff;
+            
+            /* Dark Mode Borders */
+            --border-color: #2d3748;
+            --border-light: #4a5568;
+            
+            /* Dark Mode Shadows */
+            --shadow-light: 0 2px 4px rgba(0,0,0,0.3);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-heavy: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        
+        body {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .navbar {
+            background: var(--bg-navbar);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--text-white) !important;
+        }
+        
+        .brand-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .brand-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .brand-subtitle {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            line-height: 1;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--text-white) !important;
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            color: var(--text-primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .alert-card {
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .alert-critical {
+            border-left-color: var(--danger-color);
+        }
+        
+        .alert-high {
+            border-left-color: var(--warning-color);
+        }
+        
+        .alert-medium {
+            border-left-color: var(--accent-color);
+        }
+        
+        .alert-low {
+            border-left-color: var(--success-color);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-white);
+        }
+        
+        .stat-card.danger {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .stat-card.warning {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .stat-card.success {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .btn-resolve {
+            background-color: var(--success-color);
+            border: none;
+            color: var(--text-white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+        
+        .btn-resolve:hover {
+            background-color: #229954;
+            color: var(--text-white);
+        }
+        
+        .severity-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .main-content {
+            min-height: calc(100vh - 76px);
+            padding: 2rem 0;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dark mode specific styles */
+        [data-theme="dark"] .table {
+            color: var(--text-primary);
+            background-color: var(--bg-card);
+        }
+
+        [data-theme="dark"] .table th,
+        [data-theme="dark"] .table td {
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .form-control {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .form-control:focus {
+            background-color: var(--bg-secondary);
+            border-color: var(--accent-color);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .dropdown-menu {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .dropdown-item {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .dropdown-item:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        [data-theme="dark"] .modal-content {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .modal-header,
+        [data-theme="dark"] .modal-footer {
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .list-group-item {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        /* Fix dropdown spacing */
+        .dropdown-menu {
+            padding: 0.5rem 0;
+            margin: 0;
+            border: none;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+        }
+        
+        .dropdown-divider {
+            margin: 0.5rem 0;
+            border-color: var(--border-light);
+        }
+
+        /* Smooth transitions for all elements */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'dashboard:dashboard' %}">
+                <div class="brand-icon me-2">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <div class="brand-title">Threat Detection</div>
+                    <div class="brand-subtitle">Security System</div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard:dashboard' %}">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-shield-alt me-1"></i>Security
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'dashboard:alerts_list' %}">
+                                <i class="fas fa-exclamation-triangle me-2"></i>Alerts
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard:kernel_monitoring' %}">
+                                <i class="fas fa-microchip me-2"></i>Kernel Monitoring
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard:ml_model_tester' %}">
+                                <i class="fas fa-brain me-2"></i>ML Model Tester
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard:advanced_security_dashboard' %}">
+                                <i class="fas fa-shield-virus me-2"></i>Advanced Security
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard:system_monitor' %}">
+                            <i class="fas fa-desktop me-1"></i>System Monitor
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-success me-3">
+                                <i class="fas fa-circle me-1"></i>Online
+                            </span>
+                            <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                                <i class="fas fa-sun" id="themeIcon"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0"></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/theme-manager.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

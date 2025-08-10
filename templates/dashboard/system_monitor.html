@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+
+{% block title %}System Monitor - Threat Detection System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h3 mb-0">
+            <i class="fas fa-desktop me-2"></i>System Monitor
+        </h1>
+        <p class="text-muted">Real-time system monitoring and process analysis</p>
+    </div>
+</div>
+
+<!-- System Statistics -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title text-white-50">Total Processes</h6>
+                        <h2 class="mb-0 text-white">{{ total_processes }}</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-microchip fa-2x text-white-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card stat-card warning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title text-white-50">Suspicious Processes</h6>
+                        <h2 class="mb-0 text-white">{{ suspicious_processes }}</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-exclamation-triangle fa-2x text-white-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card stat-card success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title text-white-50">System Status</h6>
+                        <h2 class="mb-0 text-white">
+                            <i class="fas fa-check-circle"></i>
+                        </h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-shield-alt fa-2x text-white-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title text-white-50">Monitoring</h6>
+                        <h2 class="mb-0 text-white">Active</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-eye fa-2x text-white-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System Information -->
+<div class="row mb-4">
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-line me-2"></i>System Performance
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if recent_system_info %}
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label class="form-label">CPU Usage</label>
+                        <div class="progress mb-2">
+                            <div class="progress-bar" role="progressbar" 
+                                 style="width: {{ recent_system_info.0.cpu_percent }}%">
+                                {{ recent_system_info.0.cpu_percent|floatformat:1 }}%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label">Memory Usage</label>
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-warning" role="progressbar" 
+                                 style="width: {{ recent_system_info.0.memory_percent }}%">
+                                {{ recent_system_info.0.memory_percent|floatformat:1 }}%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label">Disk Usage</label>
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                 style="width: {{ recent_system_info.0.disk_usage }}%">
+                                {{ recent_system_info.0.disk_usage|floatformat:1 }}%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label">Network Connections</label>
+                        <div class="d-flex align-items-center">
+                            <span class="h4 mb-0 me-2">{{ recent_system_info.0.network_connections }}</span>
+                            <small class="text-muted">active</small>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-muted mb-0">No system information available</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-history me-2"></i>Recent System Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if recent_system_info %}
+                <div class="timeline">
+                    {% for info in recent_system_info|slice:":5" %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <small class="text-muted">{{ info.timestamp|date:"H:i:s" }}</small>
+                            <div class="d-flex justify-content-between">
+                                <span>CPU: {{ info.cpu_percent|floatformat:1 }}%</span>
+                                <span>Memory: {{ info.memory_percent|floatformat:1 }}%</span>
+                                <span>Processes: {{ info.active_processes }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-muted mb-0">No recent activity</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Suspicious Processes -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Suspicious Processes
+                </h5>
+                <span class="badge bg-warning">{{ suspicious_processes }} detected</span>
+            </div>
+            <div class="card-body">
+                {% if recent_processes %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Process Name</th>
+                                <th>PID</th>
+                                <th>CPU %</th>
+                                <th>Memory %</th>
+                                <th>Command Line</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for process in recent_processes %}
+                            <tr class="table-warning">
+                                <td>
+                                    <strong>{{ process.process_name }}</strong>
+                                </td>
+                                <td>
+                                    <code>{{ process.process_id }}</code>
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar bg-danger" role="progressbar" 
+                                             style="width: {{ process.cpu_percent }}%">
+                                            {{ process.cpu_percent|floatformat:1 }}%
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" 
+                                             style="width: {{ process.memory_percent }}%">
+                                            {{ process.memory_percent|floatformat:1 }}%
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <small class="text-muted" style="max-width: 200px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                        {{ process.command_line|default:"N/A" }}
+                                    </small>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-outline-danger btn-sm" 
+                                                onclick="killProcess({{ process.process_id }})">
+                                            <i class="fas fa-times me-1"></i>Kill
+                                        </button>
+                                        <button class="btn btn-outline-info btn-sm" 
+                                                onclick="showProcessDetails({{ process.process_id }})">
+                                            <i class="fas fa-eye me-1"></i>Details
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
+                    <h5 class="text-success">No suspicious processes detected</h5>
+                    <p class="text-muted">Your system appears to be running normally.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Process Details Modal -->
+<div class="modal fade" id="processDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Process Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="processDetailsContent">
+                <!-- Content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e9ecef;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -22px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #007bff;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #007bff;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #007bff;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function killProcess(pid) {
+    if (confirm(`Are you sure you want to kill process ${pid}?`)) {
+        // In a real implementation, you would make an AJAX call to kill the process
+        alert(`Process ${pid} would be killed in a real implementation.`);
+    }
+}
+
+function showProcessDetails(pid) {
+    $('#processDetailsContent').html(`
+        <div class="alert alert-info">
+            <h6>Process ID: ${pid}</h6>
+            <p>Detailed process information would be displayed here.</p>
+            <p>This could include:</p>
+            <ul>
+                <li>Process tree</li>
+                <li>File handles</li>
+                <li>Network connections</li>
+                <li>Registry access</li>
+                <li>Memory usage details</li>
+            </ul>
+        </div>
+    `);
+    $('#processDetailsModal').modal('show');
+}
+
+// Auto-refresh every 10 seconds for system monitoring
+setInterval(function() {
+    location.reload();
+}, 10000);
+</script>
+{% endblock %} 

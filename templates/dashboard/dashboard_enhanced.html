@@ -1,0 +1,419 @@
+{% extends 'base.html' %}
+
+{% block title %}Enhanced Dashboard - Threat Detection System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="display-6 mb-1">
+                        <i class="fas fa-shield-alt text-primary me-3"></i>
+                        Threat Detection Dashboard
+                    </h1>
+                    <p class="text-muted mb-0">Real-time security monitoring and threat analysis</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <span class="badge bg-success fs-6">System Online</span>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-cog me-2"></i>Quick Actions
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'dashboard:ml_model_tester' %}">
+                                <i class="fas fa-brain me-2"></i>ML Model Tester
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard:alerts_list' %}">
+                                <i class="fas fa-exclamation-triangle me-2"></i>View All Alerts
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard:system_monitor' %}">
+                                <i class="fas fa-desktop me-2"></i>System Monitor
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard:kernel_monitoring' %}">
+                                <i class="fas fa-microchip me-2"></i>Kernel Monitoring
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Threat Score Card -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="card-body text-white">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h3 class="mb-2">System Security Status</h3>
+                            <p class="mb-3">Current threat level and security posture</p>
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <h2 class="mb-0">{{ threat_score }}/100</h2>
+                                    <small>Threat Score</small>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="progress bg-white bg-opacity-25" style="height: 10px;">
+                                        <div class="progress-bar bg-white" style="width: {{ threat_score }}%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <div class="display-4 mb-2">
+                                {% if system_status == 'Healthy' %}
+                                    <i class="fas fa-shield-check text-success"></i>
+                                {% elif system_status == 'Warning' %}
+                                    <i class="fas fa-exclamation-triangle text-warning"></i>
+                                {% else %}
+                                    <i class="fas fa-radiation text-danger"></i>
+                                {% endif %}
+                            </div>
+                            <h5 class="mb-0">{{ system_status }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3">
+                                <i class="fas fa-exclamation-triangle text-primary fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4 class="mb-1">{{ total_alerts }}</h4>
+                            <p class="text-muted mb-0">Total Alerts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <div class="bg-danger bg-opacity-10 rounded-circle p-3">
+                                <i class="fas fa-skull-crossbones text-danger fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4 class="mb-1">{{ critical_alerts }}</h4>
+                            <p class="text-muted mb-0">Critical Threats</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <div class="bg-success bg-opacity-10 rounded-circle p-3">
+                                <i class="fas fa-brain text-success fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4 class="mb-1">3</h4>
+                            <p class="text-muted mb-0">AI Models Active</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <div class="bg-info bg-opacity-10 rounded-circle p-3">
+                                <i class="fas fa-microchip text-info fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4 class="mb-1">{{ process_count }}</h4>
+                            <p class="text-muted mb-0">Active Processes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="row">
+        <!-- System Metrics -->
+        <div class="col-lg-8 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0">
+                    <h5 class="mb-0">
+                        <i class="fas fa-chart-line me-2"></i>
+                        System Performance
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <div class="position-relative d-inline-block">
+                                    <canvas id="cpuChart" width="120" height="120"></canvas>
+                                    <div class="position-absolute top-50 start-50 translate-middle">
+                                        <h4 class="mb-0">{{ cpu_percent }}%</h4>
+                                        <small class="text-muted">CPU</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <div class="position-relative d-inline-block">
+                                    <canvas id="memoryChart" width="120" height="120"></canvas>
+                                    <div class="position-absolute top-50 start-50 translate-middle">
+                                        <h4 class="mb-0">{{ memory_percent }}%</h4>
+                                        <small class="text-muted">Memory</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <div class="position-relative d-inline-block">
+                                    <canvas id="diskChart" width="120" height="120"></canvas>
+                                    <div class="position-absolute top-50 start-50 translate-middle">
+                                        <h4 class="mb-0">{{ disk_percent }}%</h4>
+                                        <small class="text-muted">Disk</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Alerts -->
+        <div class="col-lg-4 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-bell me-2"></i>
+                        Recent Alerts
+                    </h5>
+                    <a href="{% url 'dashboard:alerts_list' %}" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        {% for alert in recent_alerts %}
+                        <div class="list-group-item border-0">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    {% if alert.severity == 'CRITICAL' %}
+                                        <span class="badge bg-danger rounded-pill">CRITICAL</span>
+                                    {% elif alert.severity == 'HIGH' %}
+                                        <span class="badge bg-warning rounded-pill">HIGH</span>
+                                    {% elif alert.severity == 'MEDIUM' %}
+                                        <span class="badge bg-info rounded-pill">MEDIUM</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary rounded-pill">LOW</span>
+                                    {% endif %}
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-1">{{ alert.alert_type }}</h6>
+                                    <p class="mb-1 text-muted small">{{ alert.message|truncatechars:50 }}</p>
+                                    <small class="text-muted">{{ alert.timestamp|timesince }} ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="list-group-item border-0 text-center py-4">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <p class="text-muted mb-0">No recent alerts</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Models Status -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0">
+                    <h5 class="mb-0">
+                        <i class="fas fa-robot me-2"></i>
+                        AI Models Status
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-success bg-opacity-10 border-success">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-sms text-success fa-2x mb-2"></i>
+                                    <h6>SMS Spam Detection</h6>
+                                    <p class="mb-1"><strong>98.57%</strong> Accuracy</p>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-warning bg-opacity-10 border-warning">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-link text-warning fa-2x mb-2"></i>
+                                    <h6>URL Phishing Detection</h6>
+                                    <p class="mb-1"><strong>100%</strong> Accuracy</p>
+                                    <span class="badge bg-warning">Active</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-info bg-opacity-10 border-info">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-brain text-info fa-2x mb-2"></i>
+                                    <h6>Behavioral Analysis</h6>
+                                    <p class="mb-1"><strong>AI-Powered</strong> Detection</p>
+                                    <span class="badge bg-info">Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0">
+                    <h5 class="mb-0">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <a href="{% url 'dashboard:ml_model_tester' %}" class="card border-0 shadow-sm text-decoration-none h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-brain text-primary fa-3x mb-3"></i>
+                                    <h6>Test ML Models</h6>
+                                    <p class="text-muted small mb-0">Test messages and URLs</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="{% url 'dashboard:system_monitor' %}" class="card border-0 shadow-sm text-decoration-none h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-desktop text-success fa-3x mb-3"></i>
+                                    <h6>System Monitor</h6>
+                                    <p class="text-muted small mb-0">Real-time system metrics</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="{% url 'dashboard:kernel_monitoring' %}" class="card border-0 shadow-sm text-decoration-none h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-microchip text-warning fa-3x mb-3"></i>
+                                    <h6>Kernel Monitoring</h6>
+                                    <p class="text-muted small mb-0">Deep system analysis</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="{% url 'dashboard:alerts_list' %}" class="card border-0 shadow-sm text-decoration-none h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-exclamation-triangle text-danger fa-3x mb-3"></i>
+                                    <h6>View Alerts</h6>
+                                    <p class="text-muted small mb-0">Security notifications</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// CPU Chart
+const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+new Chart(cpuCtx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [{{ cpu_percent }}, 100 - {{ cpu_percent }}],
+            backgroundColor: ['#007bff', '#e9ecef'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        cutout: '70%'
+    }
+});
+
+// Memory Chart
+const memoryCtx = document.getElementById('memoryChart').getContext('2d');
+new Chart(memoryCtx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [{{ memory_percent }}, 100 - {{ memory_percent }}],
+            backgroundColor: ['#28a745', '#e9ecef'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        cutout: '70%'
+    }
+});
+
+// Disk Chart
+const diskCtx = document.getElementById('diskChart').getContext('2d');
+new Chart(diskCtx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [{{ disk_percent }}, 100 - {{ disk_percent }}],
+            backgroundColor: ['#ffc107', '#e9ecef'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        cutout: '70%'
+    }
+});
+</script>
+{% endblock %} 

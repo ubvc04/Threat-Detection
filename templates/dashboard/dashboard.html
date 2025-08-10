@@ -1,0 +1,440 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Advanced Threat Detection Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">
+<style>
+    .metric-card {
+        transition: transform 0.2s ease-in-out;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .threat-score {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .threat-score.healthy { color: #28a745; }
+    .threat-score.warning { color: #ffc107; }
+    .threat-score.critical { color: #dc3545; }
+    
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+    }
+    
+    .status-healthy { background-color: #28a745; }
+    .status-warning { background-color: #ffc107; }
+    .status-critical { background-color: #dc3545; }
+    
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin: 20px 0;
+    }
+    
+    .alert-item {
+        border-left: 4px solid;
+        transition: all 0.2s ease;
+    }
+    
+    .alert-item:hover {
+        transform: translateX(5px);
+    }
+    
+    .alert-critical { border-left-color: #dc3545; }
+    .alert-high { border-left-color: #fd7e14; }
+    .alert-medium { border-left-color: #ffc107; }
+    .alert-low { border-left-color: #17a2b8; }
+    
+    .real-time-indicator {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 mb-0">Advanced Threat Detection Dashboard</h1>
+                    <p class="text-muted mb-0">Real-time system monitoring and threat analysis</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="status-indicator status-{{ system_status|lower }}"></span>
+                    <span class="me-3">System Status: <strong>{{ system_status }}</strong></span>
+                    <span class="real-time-indicator text-success">● LIVE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Threat Score Card -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card metric-card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Threat Score</h5>
+                    <div class="threat-score threat-score-{{ system_status|lower }}">{{ threat_score }}/100</div>
+                    <p class="text-muted mb-0">Overall system security assessment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">CPU Usage</h6>
+                            <h3 class="mb-0">{{ cpu_percent|floatformat:1 }}%</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-microchip fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Memory Usage</h6>
+                            <h3 class="mb-0">{{ memory_percent|floatformat:1 }}%</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-memory fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Disk Usage</h6>
+                            <h3 class="mb-0">{{ disk_percent|floatformat:1 }}%</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-hdd fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Active Processes</h6>
+                            <h3 class="mb-0">{{ process_count }}</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-tasks fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Statistics -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card metric-card border-danger">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Critical Alerts</h6>
+                            <h3 class="mb-0 text-danger">{{ critical_alerts }}</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card border-warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">High Alerts</h6>
+                            <h3 class="mb-0 text-warning">{{ high_alerts }}</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-exclamation-circle fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card border-info">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Medium Alerts</h6>
+                            <h3 class="mb-0 text-info">{{ medium_alerts }}</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-info-circle fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card border-secondary">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Low Alerts</h6>
+                            <h3 class="mb-0 text-secondary">{{ low_alerts }}</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-info fa-2x text-secondary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card metric-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Alerts by Severity</h5>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="severityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card metric-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Alerts by Type</h5>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="typeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Alerts and System Info -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card metric-card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Recent Alerts</h5>
+                    <a href="{% url 'dashboard:alerts_list' %}" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                <div class="card-body">
+                    {% if recent_alerts %}
+                        <div class="list-group list-group-flush">
+                            {% for alert in recent_alerts %}
+                            <div class="list-group-item alert-item alert-{{ alert.severity|lower }}">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">{{ alert.alert_type }} - {{ alert.severity }}</h6>
+                                        <p class="mb-1">{{ alert.message }}</p>
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock"></i> {{ alert.timestamp|date:"M d, Y H:i" }}
+                                            <i class="fas fa-tag ms-2"></i> {{ alert.source }}
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-{{ alert.severity|lower }}">{{ alert.severity }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted text-center py-4">No recent alerts</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card metric-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">System Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6>Network Activity</h6>
+                        <p class="mb-1">Sent: {{ network_bytes_sent|filesizeformat }}</p>
+                        <p class="mb-0">Received: {{ network_bytes_recv|filesizeformat }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Recent System Info</h6>
+                        {% if recent_system_info %}
+                            {% for info in recent_system_info %}
+                            <div class="mb-2">
+                                <small class="text-muted">{{ info.timestamp|date:"H:i" }}</small>
+                                <div>CPU: {{ info.cpu_percent|floatformat:1 }}% | Memory: {{ info.memory_percent|floatformat:1 }}%</div>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-muted">No recent system data</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script>
+// Initialize charts when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts();
+    startRealTimeUpdates();
+});
+
+function initializeCharts() {
+    // Severity Chart
+    const severityCtx = document.getElementById('severityChart').getContext('2d');
+    const severityChart = new Chart(severityCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Critical', 'High', 'Medium', 'Low'],
+            datasets: [{
+                data: [{{ critical_alerts }}, {{ high_alerts }}, {{ medium_alerts }}, {{ low_alerts }}],
+                backgroundColor: ['#dc3545', '#fd7e14', '#ffc107', '#17a2b8'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Type Chart
+    const typeCtx = document.getElementById('typeChart').getContext('2d');
+    const typeChart = new Chart(typeCtx, {
+        type: 'bar',
+        data: {
+            labels: [{% for alert_type, count in alert_types.items %}'{{ alert_type }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Alert Count',
+                data: [{% for alert_type, count in alert_types.items %}{{ count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+}
+
+function startRealTimeUpdates() {
+    // Update system stats every 30 seconds
+    setInterval(function() {
+        fetch('/dashboard/api/system-stats/')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error fetching system stats:', data.error);
+                    return;
+                }
+                
+                // Update threat score
+                const threatScoreElement = document.querySelector('.threat-score');
+                if (threatScoreElement) {
+                    threatScoreElement.textContent = data.threat_score + '/100';
+                    
+                    // Update threat score class
+                    threatScoreElement.className = 'threat-score threat-score-' + 
+                        (data.threat_score < 30 ? 'healthy' : data.threat_score < 70 ? 'warning' : 'critical');
+                }
+                
+                // Update system status
+                const systemStatus = data.threat_score < 30 ? 'Healthy' : data.threat_score < 70 ? 'Warning' : 'Critical';
+                const statusElement = document.querySelector('.status-indicator');
+                if (statusElement) {
+                    statusElement.className = 'status-indicator status-' + systemStatus.toLowerCase();
+                }
+                
+                // Update status text
+                const statusTextElement = document.querySelector('.status-indicator + span strong');
+                if (statusTextElement) {
+                    statusTextElement.textContent = systemStatus;
+                }
+            })
+            .catch(error => {
+                console.error('Error updating system stats:', error);
+            });
+    }, 30000);
+}
+
+// Add smooth scrolling for better UX
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+{% endblock %} 

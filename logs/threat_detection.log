@@ -1,0 +1,2604 @@
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: dashboard_alert
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 17, in dashboard
+    total_alerts = Alert.objects.count()
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: dashboard_alert
+"GET / HTTP/1.1" 500 134683
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3210
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: dashboard_alert
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 17, in dashboard
+    total_alerts = Alert.objects.count()
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: dashboard_alert
+"GET / HTTP/1.1" 500 134820
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: dashboard_alert
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 17, in dashboard
+    total_alerts = Alert.objects.count()
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: dashboard_alert
+"GET / HTTP/1.1" 500 134820
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: dashboard_alert
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 17, in dashboard
+    total_alerts = Alert.objects.count()
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: dashboard_alert
+"GET / HTTP/1.1" 500 134683
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 14756
+"GET / HTTP/1.1" 200 14756
+"GET /alerts/ HTTP/1.1" 200 12532
+"GET /system/ HTTP/1.1" 200 12180
+"GET / HTTP/1.1" 200 14756
+"GET /alerts/ HTTP/1.1" 200 12532
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12540
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12483
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12483
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12483
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12483
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12483
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 12483
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 18964
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 18964
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 18964
+Internal Server Error: /alerts/
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 90, in alerts_list
+    return render(request, 'dashboard/alerts_list.html', context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 9: 'static'. Did you forget to register or load this tag?
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 500 184419
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /alerts/?alert_type=PROCESS&severity=&resolved=&search=None HTTP/1.1" 200 17254
+"GET /static/js/theme-manager.js HTTP/1.1" 200 2960
+"GET /static/css/themes.css HTTP/1.1" 200 3796
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 19470
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 19470
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 19470
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 17246
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 29717
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 29717
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 29154
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43903
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43903
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 67426
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43172
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43917
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43707
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 67934
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 67964
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+Not Found: /dashboard/api/toggle-theme/
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/?alert_type=SPAM&severity=MEDIUM&resolved=false&search=None HTTP/1.1" 200 17270
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/?alert_type=SPAM&severity=MEDIUM&resolved=false&search=None HTTP/1.1" 200 17270
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43165
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43324
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 68149
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43917
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89198
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 68279
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+Not Found: /dashboard/api/toggle-theme/
+Not Found: /dashboard/api/toggle-theme/
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 100816
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 93310
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 43915
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Watching for file changes with StatReloader
+"GET /system/ HTTP/1.1" 200 89197
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 68148
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/?alert_type=SPAM&severity=MEDIUM&resolved=false&search=None HTTP/1.1" 200 17270
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /alerts/ HTTP/1.1" 200 68148
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET /system/ HTTP/1.1" 200 89197
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+"GET / HTTP/1.1" 200 42508
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3444
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 36114
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET / HTTP/1.1" 200 36114
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 79, in dashboard
+    return render(request, 'dashboard/dashboard.html', context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'alerts_list' not found. 'alerts_list' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 191529
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 79, in dashboard
+    return render(request, 'dashboard/dashboard.html', context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'alerts_list' not found. 'alerts_list' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 192329
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 35379
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET / HTTP/1.1" 200 35378
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Internal Server Error: /alerts/
+Traceback (most recent call last):
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 116, in alerts_list
+    return render(request, 'dashboard/alerts_list.html', context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\baves\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 226, in render
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Need 2 values to unpack in for loop; got 7. 
+"GET /alerts/ HTTP/1.1" 500 192615
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /alerts/ HTTP/1.1" 200 138321
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /system-monitor/ HTTP/1.1" 200 16899
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /system-monitor/ HTTP/1.1" 200 16899
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /system-monitor/ HTTP/1.1" 200 16899
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /system-monitor/ HTTP/1.1" 200 16899
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /system-monitor/ HTTP/1.1" 200 16899
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /system-monitor/ HTTP/1.1" 200 16899
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET / HTTP/1.1" 200 35568
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /alerts/ HTTP/1.1" 200 138320
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+"GET /alerts/ HTTP/1.1" 200 138320
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3627
+Not Found: /api/alerts/674/resolve/
+"POST /api/alerts/674/resolve/ HTTP/1.1" 404 3615
+Not Found: /api/alerts/674/resolve/
+"POST /api/alerts/674/resolve/ HTTP/1.1" 404 3615
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /alerts/ HTTP/1.1" 200 138358
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+Not Found: /dashboard/api/alerts/675/resolve/
+"POST /dashboard/api/alerts/675/resolve/ HTTP/1.1" 404 3854
+"GET /alerts/ HTTP/1.1" 200 138358
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+"GET /alerts/ HTTP/1.1" 200 138358
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+"GET / HTTP/1.1" 200 35591
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+"GET /alerts/ HTTP/1.1" 200 138358
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 3835
+"GET /alerts/ HTTP/1.1" 200 138358
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 3835
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /alerts/ HTTP/1.1" 200 138358
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 3836
+Watching for file changes with StatReloader
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Watching for file changes with StatReloader
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/
+"GET /dashboard/ HTTP/1.1" 404 3975
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+"GET / HTTP/1.1" 200 36602
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 4027
+"GET /alerts/ HTTP/1.1" 200 140919
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 4027
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+- Broken pipe from ('127.0.0.1', 62276)
+"GET / HTTP/1.1" 200 36501
+Not Found: /dashboard/api/toggle-theme/
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 404 4027
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Watching for file changes with StatReloader
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Not Found: /dashboard/api/system-stats/
+"GET /dashboard/api/system-stats/ HTTP/1.1" 404 4026
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\threat_site\urls.py changed, reloading.
+C:\Users\baves\Downloads\Threat-Detection\threat_site\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+C:\Users\baves\Downloads\Threat-Detection\threat_site\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+Not Found: /
+"GET / HTTP/1.1" 404 2174
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2225
+Not Found: /
+"GET / HTTP/1.1" 404 2174
+Not Found: /
+"GET / HTTP/1.1" 404 2174
+Not Found: /
+"GET / HTTP/1.1" 404 2174
+"GET /dashboard HTTP/1.1" 301 0
+"GET /dashboard/ HTTP/1.1" 200 35504
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 140040
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17201
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17201
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 62744)
+Not Found: /
+"GET / HTTP/1.1" 404 2174
+"GET /dashboard/ HTTP/1.1" 200 35504
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 140040
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/?alert_type=PROCESS&severity=HIGH&resolved=false&search= HTTP/1.1" 200 143032
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/?alert_type=PROCESS&severity=HIGH&resolved=false&search= HTTP/1.1" 200 143032
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 62737)
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 57668
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 57670
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 57671
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17201
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 140040
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 35504
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35504
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET / HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET / HTTP/1.1" 302 0
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 35504
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 35505
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 35509
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 35751
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 50813)
+Not Found: /ml-tester
+"GET /ml-tester HTTP/1.1" 404 2332
+Not Found: /ml-tester/
+"GET /ml-tester/ HTTP/1.1" 404 2335
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 30366
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 57946
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 138454
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+C:\Users\baves\Downloads\Threat-Detection\threat_site\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 17443
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35751
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /ml-tester HTTP/1.1" 301 0
+"GET /ml-tester/ HTTP/1.1" 200 30366
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 30366
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 35751
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 50879)
+"GET /dashboard/ HTTP/1.1" 200 37023
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37023
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37024
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 139727
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 139727
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 139727
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 18716
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37635
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+- Broken pipe from ('127.0.0.1', 50934)
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19327
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37925
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Internal Server Error: /dashboard/advanced-security/
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 640, in advanced_security_dashboard
+    return render(request, 'dashboard/advanced_security_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 484, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+"GET /dashboard/advanced-security/ HTTP/1.1" 500 278804
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 44285
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37925
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2471
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 140628
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/advanced-security/start/ HTTP/1.1" 200 81
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 2150
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET / HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/advanced-security/start/ HTTP/1.1" 200 81
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 2150
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 2150
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 2152
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Not Found: /advanced-security/
+"GET /advanced-security/ HTTP/1.1" 404 2492
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET / HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 140628
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60131
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 49154)
+- Broken pipe from ('127.0.0.1', 65509)
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37925
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2471
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 37925
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 140628
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 140628
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60122
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60122
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60139
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60124
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60125
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+- Broken pipe from ('127.0.0.1', 53961)
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+Watching for file changes with StatReloader
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37926
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/report/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 39086
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 54963)
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 54964)
+- Broken pipe from ('127.0.0.1', 55010)
+- Broken pipe from ('127.0.0.1', 55033)
+"GET /dashboard/ HTTP/1.1" 200 39086
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 215
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 216
+"GET /dashboard/ HTTP/1.1" 200 39086
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"GET / HTTP/1.1" 200 39086
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 39086
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60007
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 39085
+"GET /static/css/themes.css HTTP/1.1" 304 0
+"GET /static/js/theme-manager.js HTTP/1.1" 304 0
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2471
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"GET /dashboard/api/advanced-security/report/ HTTP/1.1" 200 221
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 39084
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/ HTTP/1.1" 200 39085
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144545
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/alerts/2672/resolve/ HTTP/1.1" 200 56
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 39085
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/?alert_type=&severity=&resolved=false&search= HTTP/1.1" 200 144564
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/?alert_type=&severity=CRITICAL&resolved=false&search= HTTP/1.1" 200 64144
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60007
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 39085
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60007
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60007
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 39084
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Watching for file changes with StatReloader
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 39085
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144213
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+- Broken pipe from ('127.0.0.1', 57629)
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+- Broken pipe from ('127.0.0.1', 57630)
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 38797
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 38797
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/alerts/ HTTP/1.1" 200 144983
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/advanced-security/configure/ HTTP/1.1" 200 100
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 74
+Internal Server Error: /dashboard/advanced-security/
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 610, in advanced_security_dashboard
+    return render(request, 'dashboard/advanced_security_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 270: 'endblock'. Did you forget to register or load this tag?
+"GET /dashboard/advanced-security/ HTTP/1.1" 500 184743
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/system-monitor/ HTTP/1.1" 200 19617
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Internal Server Error: /dashboard/advanced-security/
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 610, in advanced_security_dashboard
+    return render(request, 'dashboard/advanced_security_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 270: 'endblock'. Did you forget to register or load this tag?
+"GET /dashboard/advanced-security/ HTTP/1.1" 500 184631
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+- Broken pipe from ('127.0.0.1', 59196)
+Internal Server Error: /dashboard/advanced-security/
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 610, in advanced_security_dashboard
+    return render(request, 'dashboard/advanced_security_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 270: 'endblock'. Did you forget to register or load this tag?
+"GET /dashboard/advanced-security/ HTTP/1.1" 500 184631
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ml-tester/? HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ml-tester/? HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Internal Server Error: /dashboard/advanced-security/
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 610, in advanced_security_dashboard
+    return render(request, 'dashboard/advanced_security_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 270: 'endblock'. Did you forget to register or load this tag?
+"GET /dashboard/advanced-security/ HTTP/1.1" 500 184626
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 59993
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/alerts/ HTTP/1.1" 200 144983
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 22327
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 218
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+C:\Users\baves\Downloads\Threat-Detection\detection_core\credential_theft_detector.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\credential_theft_detector.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\credential_theft_detector.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/api/system-stats/ HTTP/1.1" 200 217
+"GET /dashboard/ HTTP/1.1" 200 38797
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+Internal Server Error: /dashboard/advanced-security/
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 588, in advanced_security_dashboard
+    advanced_security_dashboard.security_manager = AdvancedSecurityManager(
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_security_manager.py", line 27, in __init__
+    self.credential_detector = CredentialTheftDetector(alert_callback=self._create_alert)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\detection_core\credential_theft_detector.py", line 39, in __init__
+    from .threat_manager import threat_manager
+  File "C:\Users\baves\Downloads\Threat-Detection\detection_core\threat_manager.py", line 6, in <module>
+    from .models import ThreatEvent, MetricHistory
+  File "C:\Users\baves\Downloads\Threat-Detection\detection_core\models.py", line 5, in <module>
+    class ThreatEvent(models.Model):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\db\models\base.py", line 134, in __new__
+    raise RuntimeError(
+RuntimeError: Model class detection_core.models.ThreatEvent doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
+"GET /dashboard/advanced-security/ HTTP/1.1" 500 117434
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+- Broken pipe from ('127.0.0.1', 63683)
+"GET /dashboard/alerts/ HTTP/1.1" 200 144983
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60000
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+C:\Users\baves\Downloads\Threat-Detection\detection_core\advanced_threat_detection.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/alerts/ HTTP/1.1" 200 144983
+- Broken pipe from ('127.0.0.1', 63749)
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 59993
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"GET /dashboard/ml-tester/ HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 39
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ml-tester/? HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ml-tester/? HTTP/1.1" 200 32540
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\threat_site\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\dashboard\views.py", line 85, in dashboard
+    return render(request, 'dashboard/dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baves\Downloads\Threat-Detection\venv\Lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'ml_model_tester' not found. 'ml_model_tester' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 190175
+C:\Users\baves\Downloads\Threat-Detection\threat_site\urls.py changed, reloading.
+Watching for file changes with StatReloader
+- Broken pipe from ('127.0.0.1', 65329)
+"GET / HTTP/1.1" 200 38522
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 38522
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/ HTTP/1.1" 200 38522
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+- Broken pipe from ('127.0.0.1', 65450)
+- Broken pipe from ('127.0.0.1', 65461)
+C:\Users\baves\Downloads\Threat-Detection\threat_site\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\baves\Downloads\Threat-Detection\dashboard\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 38798
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/alerts/ HTTP/1.1" 200 144983
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/kernel-monitoring/ HTTP/1.1" 200 60000
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/advanced-security/ HTTP/1.1" 200 46229
+"POST /dashboard/api/toggle-theme/ HTTP/1.1" 200 38
+"GET /dashboard/api/advanced-security/status/ HTTP/1.1" 200 542
+- Broken pipe from ('127.0.0.1', 49746)

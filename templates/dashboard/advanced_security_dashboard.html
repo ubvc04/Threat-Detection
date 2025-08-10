@@ -1,0 +1,600 @@
+{% extends 'base.html' %}
+
+{% block title %}Advanced Security Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2 class="card-title mb-1">
+                                <i class="fas fa-shield-virus text-primary me-2"></i>
+                                Advanced Security Dashboard
+                            </h2>
+                            <p class="text-muted mb-0">Enterprise-grade security monitoring and threat detection</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-success" id="startSecurityBtn">
+                                <i class="fas fa-play me-2"></i>Start Monitoring
+                            </button>
+                            <button class="btn btn-danger" id="stopSecurityBtn">
+                                <i class="fas fa-stop me-2"></i>Stop Monitoring
+                            </button>
+                            <button class="btn btn-info" id="generateReportBtn">
+                                <i class="fas fa-file-alt me-2"></i>Generate Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Overview -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-chart-line me-2"></i>Security Status Overview
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row" id="statusOverview">
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="text-center">
+                                <div class="h4 mb-1" id="activeModules">0</div>
+                                <small class="text-muted">Active Modules</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="text-center">
+                                <div class="h4 mb-1" id="totalModules">5</div>
+                                <small class="text-muted">Total Modules</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="text-center">
+                                <div class="h4 mb-1" id="alertsCount">0</div>
+                                <small class="text-muted">Recent Alerts</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="text-center">
+                                <div class="h4 mb-1" id="threatLevel">Low</div>
+                                <small class="text-muted">Threat Level</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="text-center">
+                                <div class="h4 mb-1" id="lastUpdate">-</div>
+                                <small class="text-muted">Last Update</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="text-center">
+                                <div class="h4 mb-1" id="overallStatus">Inactive</div>
+                                <small class="text-muted">Overall Status</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Modules -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-cogs me-2"></i>Security Modules
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row" id="securityModules">
+                        {% for module in modules %}
+                        <div class="col-lg-4 col-md-6 mb-3">
+                            <div class="card h-100 border-{% if module.status %}success{% else %}secondary{% endif %}">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="flex-shrink-0">
+                                            <i class="fas {{ module.icon }} fa-2x text-{% if module.status %}success{% else %}secondary{% endif %}"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="card-title mb-1">{{ module.name }}</h6>
+                                            <small class="text-muted">{{ module.description }}</small>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <span class="badge bg-{% if module.status %}success{% else %}secondary{% endif %}">
+                                                {% if module.status %}Active{% else %}Inactive{% endif %}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="configureModule('{{ module.name|lower|slugify }}')">
+                                            <i class="fas fa-cog me-1"></i>Configure
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-info" onclick="testModule('{{ module.name|lower|slugify }}')">
+                                            <i class="fas fa-vial me-1"></i>Test
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Alerts -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Recent Advanced Security Alerts
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Severity</th>
+                                    <th>Title</th>
+                                    <th>Source</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentAlertsTable">
+                                {% for alert in recent_advanced_alerts %}
+                                <tr>
+                                    <td>{{ alert.timestamp|date:"M d, H:i" }}</td>
+                                    <td>
+                                        <span class="badge bg-{% if alert.severity == 'CRITICAL' %}danger{% elif alert.severity == 'HIGH' %}warning{% elif alert.severity == 'MEDIUM' %}info{% else %}secondary{% endif %}">
+                                            {{ alert.severity }}
+                                        </span>
+                                    </td>
+                                    <td>{{ alert.title }}</td>
+                                    <td>{{ alert.source }}</td>
+                                    <td>
+                                        {% if alert.resolved %}
+                                        <span class="badge bg-success">Resolved</span>
+                                        {% else %}
+                                        <span class="badge bg-warning">Active</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">No recent alerts</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Configuration Panel -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-sliders-h me-2"></i>Module Configuration
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Credential Theft Detection</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Suspicious Tools Threshold</label>
+                                <input type="number" class="form-control" id="credentialThreshold" value="5" min="1" max="50">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Brute Force Detection</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Failed Attempts Threshold</label>
+                                <input type="number" class="form-control" id="bruteForceThreshold" value="5" min="1" max="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Clipboard Monitoring</h6>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="clipboardConsent" checked>
+                                <label class="form-check-label" for="clipboardConsent">
+                                    Enable clipboard monitoring
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Insider Threat Detection</h6>
+                            <div class="mb-3">
+                                <label class="form-label">File Transfer Threshold (MB)</label>
+                                <input type="number" class="form-control" id="fileTransferThreshold" value="100" min="1" max="1000">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="saveConfiguration()">
+                        <i class="fas fa-save me-2"></i>Save Configuration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Configuration Modal -->
+<div class="modal fade" id="configModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Module Configuration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="configModalBody">
+                <!-- Configuration content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveModuleConfig()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Test Results Modal -->
+<div class="modal fade" id="testModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Module Test Results</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="testModalBody">
+                <!-- Test results will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentModule = null;
+
+// Initialize page
+$(document).ready(function() {
+    updateStatus();
+    setInterval(updateStatus, 30000); // Update every 30 seconds
+});
+
+// Update security status
+function updateStatus() {
+    $.get('{% url "dashboard:get_advanced_security_status" %}')
+        .done(function(response) {
+            if (response.success) {
+                const status = response.status;
+                $('#activeModules').text(status.manager_status.active_modules);
+                $('#totalModules').text(status.manager_status.modules_count);
+                $('#overallStatus').text(status.manager_status.monitoring ? 'Active' : 'Inactive');
+                $('#lastUpdate').text(new Date(status.modules.last_update).toLocaleTimeString());
+                
+                // Update threat level based on alerts
+                const alertCount = $('.badge.bg-danger, .badge.bg-warning').length;
+                if (alertCount > 5) {
+                    $('#threatLevel').text('High').removeClass('text-success text-warning').addClass('text-danger');
+                } else if (alertCount > 2) {
+                    $('#threatLevel').text('Medium').removeClass('text-success text-danger').addClass('text-warning');
+                } else {
+                    $('#threatLevel').text('Low').removeClass('text-warning text-danger').addClass('text-success');
+                }
+            }
+        })
+        .fail(function() {
+            console.error('Failed to update status');
+        });
+}
+
+// Start security monitoring
+$('#startSecurityBtn').click(function() {
+    $.post('{% url "dashboard:start_advanced_security" %}')
+        .done(function(response) {
+            if (response.success) {
+                showAlert('success', response.message);
+                updateStatus();
+            } else {
+                showAlert('danger', response.message);
+            }
+        })
+        .fail(function() {
+            showAlert('danger', 'Failed to start security monitoring');
+        });
+});
+
+// Stop security monitoring
+$('#stopSecurityBtn').click(function() {
+    $.post('{% url "dashboard:stop_advanced_security" %}')
+        .done(function(response) {
+            if (response.success) {
+                showAlert('success', response.message);
+                updateStatus();
+            } else {
+                showAlert('danger', response.message);
+            }
+        })
+        .fail(function() {
+            showAlert('danger', 'Failed to stop security monitoring');
+        });
+});
+
+// Generate security report
+$('#generateReportBtn').click(function() {
+    $.get('{% url "dashboard:get_security_report" %}')
+        .done(function(response) {
+            if (response.success) {
+                const report = response.report;
+                let reportHtml = '<h6>Security Report</h6>';
+                reportHtml += '<p><strong>Status:</strong> ' + report.overall_status + '</p>';
+                reportHtml += '<p><strong>Timestamp:</strong> ' + new Date(report.timestamp).toLocaleString() + '</p>';
+                
+                if (report.recommendations && report.recommendations.length > 0) {
+                    reportHtml += '<h6>Recommendations:</h6><ul>';
+                    report.recommendations.forEach(function(rec) {
+                        reportHtml += '<li>' + rec + '</li>';
+                    });
+                    reportHtml += '</ul>';
+                }
+                
+                $('#testModalBody').html(reportHtml);
+                $('#testModal').modal('show');
+            } else {
+                showAlert('danger', response.message);
+            }
+        })
+        .fail(function() {
+            showAlert('danger', 'Failed to generate security report');
+        });
+});
+
+// Configure module
+function configureModule(moduleName) {
+    currentModule = moduleName;
+    let configHtml = '<h6>Configure ' + moduleName.replace(/_/g, ' ').toUpperCase() + '</h6>';
+    
+    switch(moduleName) {
+        case 'credential_theft_detection':
+            configHtml += `
+                <div class="mb-3">
+                    <label class="form-label">Suspicious Tools List</label>
+                    <textarea class="form-control" rows="5" placeholder="Enter suspicious tool names, one per line">mimikatz.exe&#10;procdump.exe&#10;wce.exe</textarea>
+                </div>
+            `;
+            break;
+        case 'brute_force_detection':
+            configHtml += `
+                <div class="mb-3">
+                    <label class="form-label">Failed Attempts Threshold</label>
+                    <input type="number" class="form-control" value="5" min="1" max="20">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Time Window (minutes)</label>
+                    <input type="number" class="form-control" value="10" min="1" max="60">
+                </div>
+            `;
+            break;
+        case 'clipboard_monitoring':
+            configHtml += `
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="enableClipboard" checked>
+                    <label class="form-check-label" for="enableClipboard">
+                        Enable clipboard monitoring
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Custom Patterns</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter custom regex patterns"></textarea>
+                </div>
+            `;
+            break;
+        default:
+            configHtml += '<p>Configuration options for this module will be available soon.</p>';
+    }
+    
+    $('#configModalBody').html(configHtml);
+    $('#configModal').modal('show');
+}
+
+// Test module
+function testModule(moduleName) {
+    currentModule = moduleName;
+    let testHtml = '<h6>Test ' + moduleName.replace(/_/g, ' ').toUpperCase() + '</h6>';
+    
+    switch(moduleName) {
+        case 'signature_verification':
+            testHtml += `
+                <div class="mb-3">
+                    <label class="form-label">File Path to Test</label>
+                    <input type="text" class="form-control" id="testFilePath" placeholder="Enter file path">
+                </div>
+                <button class="btn btn-primary" onclick="runSignatureTest()">Test File</button>
+            `;
+            break;
+        case 'clipboard_monitoring':
+            testHtml += `
+                <div class="mb-3">
+                    <label class="form-label">Test Content</label>
+                    <textarea class="form-control" rows="4" id="testContent" placeholder="Enter content to test for sensitive information">password: mysecret123&#10;admin: root&#10;0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6</textarea>
+                </div>
+                <button class="btn btn-primary" onclick="runClipboardTest()">Test Content</button>
+            `;
+            break;
+        default:
+            testHtml += '<p>Testing options for this module will be available soon.</p>';
+    }
+    
+    $('#testModalBody').html(testHtml);
+    $('#testModal').modal('show');
+}
+
+// Run signature verification test
+function runSignatureTest() {
+    const filePath = $('#testFilePath').val();
+    if (!filePath) {
+        showAlert('warning', 'Please enter a file path');
+        return;
+    }
+    
+    $.post('{% url "dashboard:test_advanced_security_module" %}', {
+        module_name: 'signature_verification',
+        test_data: { file_path: filePath }
+    })
+    .done(function(response) {
+        if (response.success) {
+            const result = response.result;
+            let resultHtml = '<h6>Signature Verification Results</h6>';
+            resultHtml += '<p><strong>File:</strong> ' + result.file_path + '</p>';
+            resultHtml += '<p><strong>Hash:</strong> ' + result.file_hash + '</p>';
+            resultHtml += '<p><strong>Signature Valid:</strong> ' + (result.signature_valid ? 'Yes' : 'No') + '</p>';
+            resultHtml += '<p><strong>Suspicious:</strong> ' + (result.is_suspicious ? 'Yes' : 'No') + '</p>';
+            
+            $('#testModalBody').html(resultHtml);
+        } else {
+            showAlert('danger', response.message);
+        }
+    })
+    .fail(function() {
+        showAlert('danger', 'Failed to test signature verification');
+    });
+}
+
+// Run clipboard monitoring test
+function runClipboardTest() {
+    const content = $('#testContent').val();
+    if (!content) {
+        showAlert('warning', 'Please enter test content');
+        return;
+    }
+    
+    $.post('{% url "dashboard:test_advanced_security_module" %}', {
+        module_name: 'clipboard_monitoring',
+        test_data: { content: content }
+    })
+    .done(function(response) {
+        if (response.success) {
+            const result = response.result;
+            let resultHtml = '<h6>Clipboard Monitoring Results</h6>';
+            if (result && result.length > 0) {
+                resultHtml += '<p><strong>Detected Items:</strong></p><ul>';
+                result.forEach(function(item) {
+                    resultHtml += '<li><strong>' + item.type + ':</strong> ' + item.value + '</li>';
+                });
+                resultHtml += '</ul>';
+            } else {
+                resultHtml += '<p>No sensitive information detected.</p>';
+            }
+            
+            $('#testModalBody').html(resultHtml);
+        } else {
+            showAlert('danger', response.message);
+        }
+    })
+    .fail(function() {
+        showAlert('danger', 'Failed to test clipboard monitoring');
+    });
+}
+
+// Save module configuration
+function saveModuleConfig() {
+    if (!currentModule) return;
+    
+    // Collect configuration data based on module
+    let config = {};
+    
+    $.post('{% url "dashboard:configure_advanced_security" %}', {
+        module_name: currentModule,
+        config: config
+    })
+    .done(function(response) {
+        if (response.success) {
+            showAlert('success', response.message);
+            $('#configModal').modal('hide');
+        } else {
+            showAlert('danger', response.message);
+        }
+    })
+    .fail(function() {
+        showAlert('danger', 'Failed to save configuration');
+    });
+}
+
+// Save general configuration
+function saveConfiguration() {
+    const config = {
+        credential_theft: {
+            thresholds: {
+                suspicious_tools_threshold: $('#credentialThreshold').val()
+            }
+        },
+        brute_force: {
+            thresholds: {
+                failed_attempts_threshold: $('#bruteForceThreshold').val()
+            }
+        },
+        clipboard_monitoring: {
+            user_consent: $('#clipboardConsent').is(':checked')
+        },
+        insider_threat: {
+            behavioral_thresholds: {
+                large_file_transfer_mb: $('#fileTransferThreshold').val()
+            }
+        }
+    };
+    
+    // Save each module configuration
+    Object.keys(config).forEach(function(moduleName) {
+        $.post('{% url "dashboard:configure_advanced_security" %}', {
+            module_name: moduleName,
+            config: config[moduleName]
+        });
+    });
+    
+    showAlert('success', 'Configuration saved successfully');
+}
+
+// Show alert message
+function showAlert(type, message) {
+    const alertHtml = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+    $('.container-fluid').prepend(alertHtml);
+    
+    // Auto-dismiss after 5 seconds
+    setTimeout(function() {
+        $('.alert').alert('close');
+    }, 5000);
+}
+</script>
+{% endblock %} 

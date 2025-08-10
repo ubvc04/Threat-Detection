@@ -1,0 +1,432 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Kernel-Level Monitoring - Threat Detection System{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">
+<style>
+    .kernel-card {
+        transition: transform 0.2s ease-in-out;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    
+    .kernel-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .kernel-threat-score {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .kernel-threat-score.healthy { color: #28a745; }
+    .kernel-threat-score.warning { color: #ffc107; }
+    .kernel-threat-score.critical { color: #dc3545; }
+    
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+    }
+    
+    .status-healthy { background-color: #28a745; }
+    .status-warning { background-color: #ffc107; }
+    .status-critical { background-color: #dc3545; }
+    
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin: 20px 0;
+    }
+    
+    .alert-item {
+        border-left: 4px solid;
+        transition: all 0.2s ease;
+        margin-bottom: 10px;
+    }
+    
+    .alert-item:hover {
+        transform: translateX(5px);
+    }
+    
+    .alert-critical { border-left-color: #dc3545; }
+    .alert-high { border-left-color: #fd7e14; }
+    .alert-medium { border-left-color: #ffc107; }
+    .alert-low { border-left-color: #17a2b8; }
+    
+    .real-time-indicator {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+    }
+    
+    .process-row {
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .process-row:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .network-stats {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 mb-0">
+                        <i class="fas fa-microchip me-2"></i>Kernel-Level Monitoring
+                    </h1>
+                    <p class="text-muted mb-0">Advanced system monitoring at kernel level</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="status-indicator status-{{ system_status|lower }}"></span>
+                    <span class="me-3">System Status: <strong>{{ system_status }}</strong></span>
+                    <span class="real-time-indicator text-success">● LIVE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kernel Threat Score -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card kernel-card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kernel-Level Threat Score</h5>
+                    <div class="kernel-threat-score kernel-threat-score-{{ system_status|lower }}">{{ kernel_threat_score }}/100</div>
+                    <p class="text-muted mb-0">Advanced threat detection at kernel level ({{ kernel_alerts_count }} alerts detected)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Metrics -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card kernel-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">CPU Usage</h6>
+                            <h3 class="mb-0">{{ cpu_percent|floatformat:1 }}%</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-microchip fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card kernel-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Memory Usage</h6>
+                            <h3 class="mb-0">{{ memory_percent|floatformat:1 }}%</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-memory fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card kernel-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Network Connections</h6>
+                            <h3 class="mb-0">{{ network_connections_count }}</h3>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-network-wired fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card kernel-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title text-muted">Network I/O</h6>
+                            <h3 class="mb-0">{{ network_bytes_sent|filesizeformat }}</h3>
+                            <small class="text-muted">Sent</small>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-arrow-up fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kernel Monitoring Sections -->
+    <div class="row">
+        <!-- Recent Kernel Alerts -->
+        <div class="col-md-6">
+            <div class="card kernel-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Recent Kernel Alerts
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if kernel_alerts %}
+                        <div class="list-group list-group-flush">
+                            {% for alert in kernel_alerts %}
+                            <div class="list-group-item alert-item alert-{{ alert.severity|lower }}">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">{{ alert.alert_type }} - {{ alert.severity }}</h6>
+                                        <p class="mb-1">{{ alert.message }}</p>
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock"></i> {{ alert.timestamp|date:"M d, Y H:i" }}
+                                            <i class="fas fa-tag ms-2"></i> {{ alert.source }}
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-{{ alert.severity|lower }}">{{ alert.severity }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted text-center py-4">No kernel-level alerts detected</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Processes -->
+        <div class="col-md-6">
+            <div class="card kernel-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-tasks me-2"></i>Top Processes (CPU Usage)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if top_processes %}
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Process</th>
+                                        <th>PID</th>
+                                        <th>CPU %</th>
+                                        <th>Memory %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for proc in top_processes %}
+                                    <tr class="process-row">
+                                        <td>{{ proc.name }}</td>
+                                        <td>{{ proc.pid }}</td>
+                                        <td>{{ proc.cpu_percent|floatformat:1 }}%</td>
+                                        <td>{{ proc.memory_percent|floatformat:1 }}%</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted text-center py-4">No process data available</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Categories -->
+    <div class="row mt-4">
+        <!-- Network Alerts -->
+        <div class="col-md-4">
+            <div class="card kernel-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-network-wired me-2"></i>Network Alerts
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if recent_network_alerts %}
+                        <div class="list-group list-group-flush">
+                            {% for alert in recent_network_alerts %}
+                            <div class="list-group-item alert-item alert-{{ alert.severity|lower }}">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">{{ alert.severity }}</h6>
+                                        <p class="mb-1">{{ alert.message|truncatechars:50 }}</p>
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock"></i> {{ alert.timestamp|date:"H:i" }}
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-{{ alert.severity|lower }}">{{ alert.severity }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted text-center py-4">No network alerts</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Alerts -->
+        <div class="col-md-4">
+            <div class="card kernel-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-cogs me-2"></i>Process Alerts
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if recent_process_alerts %}
+                        <div class="list-group list-group-flush">
+                            {% for alert in recent_process_alerts %}
+                            <div class="list-group-item alert-item alert-{{ alert.severity|lower }}">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">{{ alert.severity }}</h6>
+                                        <p class="mb-1">{{ alert.message|truncatechars:50 }}</p>
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock"></i> {{ alert.timestamp|date:"H:i" }}
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-{{ alert.severity|lower }}">{{ alert.severity }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted text-center py-4">No process alerts</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- System Alerts -->
+        <div class="col-md-4">
+            <div class="card kernel-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-shield-alt me-2"></i>System Alerts
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if recent_system_alerts %}
+                        <div class="list-group list-group-flush">
+                            {% for alert in recent_system_alerts %}
+                            <div class="list-group-item alert-item alert-{{ alert.severity|lower }}">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">{{ alert.severity }}</h6>
+                                        <p class="mb-1">{{ alert.message|truncatechars:50 }}</p>
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock"></i> {{ alert.timestamp|date:"H:i" }}
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-{{ alert.severity|lower }}">{{ alert.severity }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted text-center py-4">No system alerts</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kernel Monitoring Features -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card kernel-card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-list me-2"></i>Kernel-Level Monitoring Features
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
+                                <h6>Packet Capture</h6>
+                                <p class="text-muted">Real-time network packet analysis</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <i class="fas fa-cogs fa-3x text-info mb-3"></i>
+                                <h6>Process Behavior</h6>
+                                <p class="text-muted">Deep process analysis and monitoring</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <i class="fas fa-database fa-3x text-warning mb-3"></i>
+                                <h6>Registry Monitoring</h6>
+                                <p class="text-muted">Windows registry change detection</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <i class="fas fa-memory fa-3x text-success mb-3"></i>
+                                <h6>Memory Analysis</h6>
+                                <p class="text-muted">Process memory pattern detection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script>
+// Auto-refresh every 30 seconds
+setInterval(function() {
+    location.reload();
+}, 30000);
+
+// Add smooth scrolling for better UX
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+{% endblock %} 

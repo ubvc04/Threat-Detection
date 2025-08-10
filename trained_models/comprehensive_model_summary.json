@@ -1,0 +1,40 @@
+{
+  "total_models": 3,
+  "models": {
+    "arff_.old": {
+      "type": "tabular",
+      "algorithm": "RandomForest",
+      "accuracy": 1.0,
+      "samples": 2456,
+      "trained_at": "2025-08-03T21:55:53.101614"
+    },
+    "text_spam_dataset": {
+      "type": "text",
+      "algorithm": "SVM",
+      "accuracy": 0.9856502242152466,
+      "samples": 5574,
+      "trained_at": "2025-08-03T21:55:55.734886"
+    },
+    "arff_Training Dataset": {
+      "type": "tabular",
+      "algorithm": "RandomForest",
+      "accuracy": 1.0,
+      "samples": 11055,
+      "trained_at": "2025-08-03T21:55:55.994609"
+    }
+  },
+  "trained_at": "2025-08-03T21:55:56.181604",
+  "dataset_files_processed": [
+    "datasets\\.old.arff",
+    "datasets\\.old.csv",
+    "datasets\\Phishing Websites Features.docx",
+    "datasets\\phishing_dataset.csv",
+    "datasets\\readme",
+    "datasets\\SMSSpamCollection",
+    "datasets\\spam.csv",
+    "datasets\\spam_dataset.csv",
+    "datasets\\Training Dataset.arff",
+    "datasets\\Training Dataset.csv",
+    "datasets\\verified_online.csv"
+  ]
+}

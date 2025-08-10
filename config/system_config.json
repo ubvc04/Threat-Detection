@@ -1,0 +1,254 @@
+{
+  "system": {
+    "name": "Advanced Threat Detection System",
+    "version": "2.0.0",
+    "description": "Enterprise-grade threat detection with kernel-level monitoring",
+    "author": "Security Team",
+    "license": "MIT"
+  },
+  
+  "web_interface": {
+    "django": {
+      "host": "127.0.0.1",
+      "port": 8000,
+      "debug": false,
+      "allowed_hosts": ["127.0.0.1", "localhost"],
+      "static_url": "/static/",
+      "media_url": "/media/"
+    },
+    "dashboard": {
+      "auto_refresh_interval": 30000,
+      "theme_default": "light",
+      "max_alerts_per_page": 50,
+      "chart_update_interval": 5000
+    }
+  },
+  
+  "monitoring": {
+    "kernel_level": {
+      "enabled": true,
+      "packet_capture": {
+        "enabled": true,
+        "max_packets": 1000,
+        "timeout": 60,
+        "suspicious_patterns": [
+          "cmd.exe", "powershell", "wget", "curl", "download",
+          "http://", "https://", "ftp://", "tcp://",
+          "base64", "encode", "decode", "encrypt",
+          "reverse", "shell", "backdoor", "trojan"
+        ]
+      },
+      "process_monitoring": {
+        "enabled": true,
+        "check_interval": 30,
+        "suspicious_processes": [
+          "cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe",
+          "rundll32.exe", "regsvr32.exe", "mshta.exe"
+        ],
+        "suspicious_patterns": [
+          "powershell -enc", "cmd /c", "wget", "curl",
+          "download", "execute", "run", "install"
+        ]
+      },
+      "registry_monitoring": {
+        "enabled": true,
+        "critical_keys": [
+          "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+          "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce",
+          "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run",
+          "SYSTEM\\CurrentControlSet\\Services",
+          "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+          "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellExecuteHooks"
+        ],
+        "suspicious_patterns": [
+          "http://", "https://", "ftp://", "download",
+          "powershell", "cmd.exe", "wscript", "cscript",
+          "rundll32", "regsvr32", "mshta", "javascript"
+        ]
+      },
+      "service_monitoring": {
+        "enabled": true,
+        "suspicious_paths": [
+          "temp", "downloads", "desktop", "appdata",
+          "users", "public", "programdata"
+        ],
+        "suspicious_names": [
+          "update", "security", "system", "windows",
+          "microsoft", "service", "svc", "driver"
+        ]
+      },
+      "file_system_monitoring": {
+        "enabled": true,
+        "critical_directories": [
+          "~/Downloads",
+          "~/Desktop",
+          "~/Documents",
+          "C:/Windows/Temp",
+          "C:/Temp",
+          "C:/Windows/System32"
+        ],
+        "suspicious_extensions": [".exe", ".bat", ".cmd", ".ps1", ".vbs", ".js"],
+        "suspicious_names": [
+          "update", "security", "system", "windows",
+          "microsoft", "service", "driver", "install"
+        ]
+      }
+    },
+    
+    "system_resources": {
+      "enabled": true,
+      "check_interval": 10,
+      "cpu_threshold": 80,
+      "memory_threshold": 85,
+      "disk_threshold": 90,
+      "network_threshold": 1000000
+    },
+    
+    "network_analysis": {
+      "enabled": true,
+      "connection_monitoring": {
+        "enabled": true,
+        "suspicious_ports": [22, 23, 3389, 445, 135, 139],
+        "max_connections_per_ip": 20,
+        "max_suspicious_connections": 5
+      },
+      "behavior_analysis": {
+        "enabled": true,
+        "port_scanning_threshold": 20,
+        "dns_tunneling_detection": true,
+        "encrypted_traffic_detection": true
+      }
+    }
+  },
+  
+  "security": {
+    "yara_rules": {
+      "enabled": true,
+      "rules_file": "config/yara_rules.yar",
+      "scan_interval": 300
+    },
+    "virustotal": {
+      "enabled": false,
+      "api_key": "",
+      "scan_suspicious_files": true,
+      "max_file_size": 32000000
+    },
+    "alert_thresholds": {
+      "critical": 1,
+      "high": 5,
+      "medium": 10,
+      "low": 20
+    },
+    "whitelist": {
+      "processes": [
+        "svchost.exe", "explorer.exe", "winlogon.exe",
+        "services.exe", "lsass.exe", "csrss.exe",
+        "wininit.exe", "dwm.exe", "taskmgr.exe"
+      ],
+      "ips": [],
+      "domains": []
+    }
+  },
+  
+  "machine_learning": {
+    "phishing_detection": {
+      "enabled": true,
+      "model_path": "models/phishing_detector.pkl",
+      "confidence_threshold": 0.7
+    },
+    "spam_detection": {
+      "enabled": true,
+      "model_path": "models/spam_detector.pkl",
+      "confidence_threshold": 0.8
+    },
+    "threat_scoring": {
+      "enabled": true,
+      "critical_weight": 25,
+      "high_weight": 15,
+      "medium_weight": 5,
+      "low_weight": 1,
+      "max_score": 100
+    }
+  },
+  
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "file": "logs/threat_detection.log",
+    "max_size": 10485760,
+    "backup_count": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  
+  "database": {
+    "engine": "sqlite",
+    "name": "db.sqlite3",
+    "backup": {
+      "enabled": true,
+      "interval": 86400,
+      "retention_days": 30
+    },
+    "cleanup": {
+      "enabled": true,
+      "alert_retention_days": 90,
+      "log_retention_days": 30
+    }
+  },
+  
+  "performance": {
+    "optimization": {
+      "cache_enabled": true,
+      "cache_timeout": 300,
+      "background_processing": true,
+      "max_threads": 10
+    },
+    "resource_limits": {
+      "max_memory_usage": 1073741824,
+      "max_cpu_percent": 50,
+      "max_disk_usage": 5368709120
+    }
+  },
+  
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp_server": "",
+      "smtp_port": 587,
+      "username": "",
+      "password": "",
+      "recipients": []
+    },
+    "webhook": {
+      "enabled": false,
+      "url": "",
+      "headers": {}
+    },
+    "desktop": {
+      "enabled": true,
+      "critical_alerts": true,
+      "high_alerts": true,
+      "medium_alerts": false,
+      "low_alerts": false
+    }
+  },
+  
+  "updates": {
+    "auto_update": false,
+    "check_interval": 86400,
+    "update_url": "",
+    "backup_before_update": true
+  },
+  
+  "compliance": {
+    "audit_logging": true,
+    "data_retention": {
+      "alerts": 90,
+      "logs": 30,
+      "system_info": 7
+    },
+    "privacy": {
+      "anonymize_data": false,
+      "encrypt_sensitive_data": true
+    }
+  }
+} 

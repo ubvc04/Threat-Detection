@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+
+{% block title %}Alerts - Threat Detection System{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h3 mb-0">
+            <i class="fas fa-exclamation-triangle me-2"></i>Alerts
+        </h1>
+        <p class="text-muted">View and manage all threat detection alerts</p>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="get" class="row g-3">
+                    <div class="col-md-3">
+                        <label for="alert_type" class="form-label">Alert Type</label>
+                        <select class="form-select" id="alert_type" name="alert_type">
+                            <option value="">All Types</option>
+                            {% for alert_type, display_name in alert_types %}
+                            <option value="{{ alert_type }}" {% if current_filters.alert_type == alert_type %}selected{% endif %}>
+                                {{ display_name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <label for="severity" class="form-label">Severity</label>
+                        <select class="form-select" id="severity" name="severity">
+                            <option value="">All Severities</option>
+                            {% for severity, display_name in severity_levels %}
+                            <option value="{{ severity }}" {% if current_filters.severity == severity %}selected{% endif %}>
+                                {{ display_name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <label for="resolved" class="form-label">Status</label>
+                        <select class="form-select" id="resolved" name="resolved">
+                            <option value="">All Status</option>
+                            <option value="false" {% if current_filters.resolved == 'false' %}selected{% endif %}>Active</option>
+                            <option value="true" {% if current_filters.resolved == 'true' %}selected{% endif %}>Resolved</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <label for="search" class="form-label">Search</label>
+                        <input type="text" class="form-control" id="search" name="search" 
+                               value="{{ current_filters.search }}" placeholder="Search messages...">
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search me-1"></i>Filter
+                        </button>
+                        <a href="{% url 'dashboard:alerts_list' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-times me-1"></i>Clear
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alerts Table -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-list me-2"></i>Alerts ({{ page_obj.paginator.count }} total)
+                </h5>
+                <div>
+                    <span class="badge bg-primary">{{ page_obj.paginator.count }} alerts</span>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if page_obj %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Severity</th>
+                                <th>Message</th>
+                                <th>Source</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for alert in page_obj %}
+                            <tr class="alert-{{ alert.severity|lower }}">
+                                <td>
+                                    <small>{{ alert.timestamp|date:"M d, H:i:s" }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">{{ alert.alert_type }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge severity-badge 
+                                        {% if alert.severity == 'CRITICAL' %}bg-danger
+                                        {% elif alert.severity == 'HIGH' %}bg-warning
+                                        {% elif alert.severity == 'MEDIUM' %}bg-primary
+                                        {% else %}bg-success{% endif %}">
+                                        {{ alert.severity }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="alert-message" style="max-width: 300px;">
+                                        {{ alert.message }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <small class="text-muted">{{ alert.source }}</small>
+                                </td>
+                                <td>
+                                    {% if alert.resolved %}
+                                        <span class="badge bg-success">Resolved</span>
+                                    {% else %}
+                                        <span class="badge bg-warning">Active</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        {% if not alert.resolved %}
+                                        <button class="btn btn-resolve btn-sm" 
+                                                onclick="markResolved({{ alert.id }})">
+                                            <i class="fas fa-check me-1"></i>Resolve
+                                        </button>
+                                        {% endif %}
+                                        <button class="btn btn-outline-info btn-sm" 
+                                                onclick="showDetails({{ alert.id }})">
+                                            <i class="fas fa-eye me-1"></i>Details
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                {% if page_obj.has_other_pages %}
+                <nav aria-label="Alerts pagination">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1{% if current_filters.alert_type %}&alert_type={{ current_filters.alert_type }}{% endif %}{% if current_filters.severity %}&severity={{ current_filters.severity }}{% endif %}{% if current_filters.resolved %}&resolved={{ current_filters.resolved }}{% endif %}{% if current_filters.search %}&search={{ current_filters.search }}{% endif %}">
+                                <i class="fas fa-angle-double-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if current_filters.alert_type %}&alert_type={{ current_filters.alert_type }}{% endif %}{% if current_filters.severity %}&severity={{ current_filters.severity }}{% endif %}{% if current_filters.resolved %}&resolved={{ current_filters.resolved }}{% endif %}{% if current_filters.search %}&search={{ current_filters.search }}{% endif %}">
+                                <i class="fas fa-angle-left"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ num }}</span>
+                            </li>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}{% if current_filters.alert_type %}&alert_type={{ current_filters.alert_type }}{% endif %}{% if current_filters.severity %}&severity={{ current_filters.severity }}{% endif %}{% if current_filters.resolved %}&resolved={{ current_filters.resolved }}{% endif %}{% if current_filters.search %}&search={{ current_filters.search }}{% endif %}">{{ num }}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if current_filters.alert_type %}&alert_type={{ current_filters.alert_type }}{% endif %}{% if current_filters.severity %}&severity={{ current_filters.severity }}{% endif %}{% if current_filters.resolved %}&resolved={{ current_filters.resolved }}{% endif %}{% if current_filters.search %}&search={{ current_filters.search }}{% endif %}">
+                                <i class="fas fa-angle-right"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if current_filters.alert_type %}&alert_type={{ current_filters.alert_type }}{% endif %}{% if current_filters.severity %}&severity={{ current_filters.severity }}{% endif %}{% if current_filters.resolved %}&resolved={{ current_filters.resolved }}{% endif %}{% if current_filters.search %}&search={{ current_filters.search }}{% endif %}">
+                                <i class="fas fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+                
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">No alerts found</h5>
+                    <p class="text-muted">No alerts match your current filters.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alert Details Modal -->
+<div class="modal fade" id="alertDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alert Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="alertDetailsContent">
+                <!-- Content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function markResolved(alertId) {
+    $.ajax({
+        url: `/dashboard/api/alerts/${alertId}/resolve/`,
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': $('[name=csrfmiddlewaretoken]').val()
+        },
+        success: function(response) {
+            if (response.success) {
+                location.reload();
+            } else {
+                alert('Error marking alert as resolved');
+            }
+        },
+        error: function() {
+            alert('Error marking alert as resolved');
+        }
+    });
+}
+
+function showDetails(alertId) {
+    // For now, just show a simple message
+    // In a real implementation, you would fetch detailed alert information
+    $('#alertDetailsContent').html(`
+        <div class="alert alert-info">
+            <h6>Alert ID: ${alertId}</h6>
+            <p>Detailed information for this alert would be displayed here.</p>
+            <p>This could include:</p>
+            <ul>
+                <li>Raw event data</li>
+                <li>Analysis results</li>
+                <li>Related events</li>
+                <li>Recommended actions</li>
+            </ul>
+        </div>
+    `);
+    $('#alertDetailsModal').modal('show');
+}
+
+// Auto-refresh every 30 seconds
+setInterval(function() {
+    location.reload();
+}, 30000);
+</script>
+{% endblock %} 

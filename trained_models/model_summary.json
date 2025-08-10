@@ -1,0 +1,14 @@
+{
+  "total_models": 1,
+  "models": {
+    "sms_spam": {
+      "type": "text",
+      "algorithm": "RandomForest",
+      "accuracy": 0.9820627802690582,
+      "features": 5000,
+      "samples": 5574,
+      "trained_at": "2025-08-03T21:46:38.921536"
+    }
+  },
+  "trained_at": "2025-08-03T21:46:39.247939"
+}
